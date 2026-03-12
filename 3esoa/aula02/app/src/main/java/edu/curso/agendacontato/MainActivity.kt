@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity() {
 
 
         setContent {
+//            val contatoViewModel : ContatoViewModel by remember { viewModels() }
             LaunchedEffect(Unit) {
                 contatoViewModel.lerBackend()
             }

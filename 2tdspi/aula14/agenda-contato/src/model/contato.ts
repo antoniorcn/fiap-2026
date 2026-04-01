@@ -7,7 +7,7 @@ import {InferType, number, object, string} from 'yup';
 // }
 
 const contatoSchema = object ( {
-    id : number().nullable(),
+    id : number().required().nullable(),
     nome : string().required().min(5),
     telefone : string().required(),
     email : string().required().email()

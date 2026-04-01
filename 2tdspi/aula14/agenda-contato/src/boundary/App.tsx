@@ -41,41 +41,34 @@ const ContatoDetalhes = ( { item : pessoa, onApagar, onEditar }
 }
 
 const ContatoFormulario = ( props : any ) => { 
-  const [nome, setNome] = useState<string>("");
-  const [telefone, setTelefone] = useState<string>("");
-  const [email, setEmail] = useState<string>("");  
   return (
     <View style={[props.estiloAtual.container, {justifyContent: "center"}]}>
-      <CustomTextInput value={nome} placeholder="Nome Completo: "
-        onChangeText={setNome}
+      <CustomTextInput value={props.nome} placeholder="Nome Completo: "
+        onChangeText={props.setNome}
         error = {props.nomeErro}
         style={props.estiloAtual.input}
         placeholderTextColor = {props.placeHolderColor}/>
-      <CustomTextInput value={telefone} placeholder="Telefone: "
-        onChangeText={setTelefone}
+      <CustomTextInput value={props.telefone} placeholder="Telefone: "
+        onChangeText={props.setTelefone}
         error = {props.telefoneErro}
         style={props.estiloAtual.input}
         placeholderTextColor = {props.placeHolderColor}/>
-      <CustomTextInput value={email} placeholder="Email: "
-        onChangeText={setEmail}
+      <CustomTextInput value={props.email} placeholder="Email: "
+        onChangeText={props.setEmail}
         error = {props.emailErro}
         style={props.estiloAtual.input}
         placeholderTextColor = {props.placeHolderColor}/>
       <Button title="Salvar" onPress={()=>{
-        const obj : Contato = { id : 0,
-          nome, telefone, email };
+        const obj : Contato = { id : null,
+          nome : props.nome, telefone: props.telefone, email: props.email };
         props.salvar( obj );
-        
-        setNome("");
-        setTelefone("");
-        setEmail("");
       }} />
       <Button title="Pesquisar" onPress={()=>{
-        const contato = props.pesquisar( nome );
+        const contato = props.pesquisar( props.nome );
         if (contato != null) {
-          setNome( contato.nome );
-          setTelefone( contato.telefone );
-          setEmail( contato.email );  
+          props.setNome( contato.nome );
+          props.setTelefone( contato.telefone );
+          props.setEmail( contato.email );  
         }
       }}/>
       <StatusBar style="auto" />
@@ -96,11 +89,14 @@ const ContatoListagem = ( props : any ) => {
             ( flatProps : ListRenderItemInfo<Contato> ) => 
               <ContatoDetalhes {...flatProps} 
                   onApagar={props.apagar} 
-                  onEditar={()=>{}} />}
+                  onEditar={ (contato : Contato) => {
+                    props.editar(contato);
+                    props.navigation.navigate("Formulario");
+                  }} />}
           /* renderItem = { ContatoDetalhes }
            renderItem = { ( propsFlat )=> <ContatoDetalhes {...propsFlat}/>} */
           keyExtractor = { 
-          (contato: Contato) => `contato-${contato.id}`
+            (contato: Contato) => `contato-${contato.id}`
           }
           initialNumToRender={10}
           windowSize={9}
@@ -125,8 +121,9 @@ export default function App() {
   }
 
   const {isDark, setDark, filtro, setFiltro, listaFiltrada, 
-    lista, salvar, pesquisar, apagar, setLista, 
+    lista, salvar, pesquisar, apagar, editar, setLista, 
     onRefresh, carregando, 
+    nome, setNome, email, setEmail, telefone, setTelefone,
     nomeErro, telefoneErro, emailErro} = useContato( mensagem )
 
   const estiloAtual = isDark ? estiloDark : estiloLight;
@@ -145,15 +142,17 @@ export default function App() {
         <View style={estiloAtual.container}>
           <Navigator>
             <Screen name="Listagem">
-                { ()=><ContatoListagem 
+                { ( propsNavigation )=><ContatoListagem 
                   estiloAtual={estiloAtual}
                   filtro={filtro}
                   setFiltro={setFiltro}
                   apagar = {apagar}
+                  editar = {editar}
                   listaFiltrada={listaFiltrada}
                   placeHolderColor={placeHolderColor}
                   onRefresh={onRefresh}
-                  loading={carregando}/> }
+                  loading={carregando}
+                  {...propsNavigation}/> }
             </Screen>
             <Screen name="Formulario">
                 { ()=><ContatoFormulario 
@@ -163,6 +162,12 @@ export default function App() {
                   pesquisar={pesquisar}
                   setLista={setLista}
                   setFiltro={setFiltro}
+                  nome={nome}
+                  setNome={setNome}
+                  telefone={telefone}
+                  setTelefone={setTelefone}
+                  email={email}
+                  setEmail={setEmail}
                   nomeErro={nomeErro}
                   telefoneErro={telefoneErro}
                   emailErro={emailErro}

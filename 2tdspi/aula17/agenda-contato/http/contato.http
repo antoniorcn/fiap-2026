@@ -1,0 +1,38 @@
+POST https://tdspi-d12cf-default-rtdb.firebaseio.com/contato.json HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "Joao Silva",
+    "email": "joao@teste.com",
+    "telefone": "(11) 1111-1111"
+}
+
+
+###
+
+GET https://tdspi-d12cf-default-rtdb.firebaseio.com/contato.json HTTP/1.1
+
+###
+
+PATCH https://tdspi-d12cf-default-rtdb.firebaseio.com/contato/-OpmW9ttELN7GJOHxq78.json HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "joao@google.com"
+}
+
+###
+
+PUT https://tdspi-d12cf-default-rtdb.firebaseio.com/contato/-OpmW9ttELN7GJOHxq78.json HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 2,
+    "nome": "Maria Silva",
+    "email": "maria@teste.com",
+    "telefone": "(11) 2222-2222"
+}
+
+###
+DELETE https://tdspi-d12cf-default-rtdb.firebaseio.com/contato/-OpmW9ttELN7GJOHxq78.json HTTP/1.1

@@ -10,7 +10,7 @@ Content-Type: application/json
 
 ###
 
-POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD6jWCFpnFmLmP1qJXAhwVAH6oQhncKVBk
+POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[ApiKey]
 Content-Type: application/json
 
 {

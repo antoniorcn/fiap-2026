@@ -1,0 +1,13 @@
+POST https://tdsr-b6b7e-default-rtdb.firebaseio.com/contato.json HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "nome": "Marcos Maia",
+    "email": "marcos@teste.com",
+    "telefone": "(11) 6666-6666"
+}
+
+
+###
+
+GET https://tdsr-b6b7e-default-rtdb.firebaseio.com/contato.json?auth=[token] HTTP/1.1

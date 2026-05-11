@@ -1,0 +1,8 @@
+POST https://esoa-b78fb-default-rtdb.firebaseio.com/contatos.json HTTP/1.1
+Content-Type: "application/json"
+
+{
+    "nome": "Joao Silva",
+    "telefone" : "1111-1111",
+    "email": "joao@teste.com"
+}

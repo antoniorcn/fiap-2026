@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.16.0",
+    "@react-navigation/native": "^7.2.4",
+    "react-native-safe-area-context": "^5.7.0",
+    "react-native-screens": "^4.25.0",
+    "yup": "^1.7.1"
+  }
+}

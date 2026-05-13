@@ -1,3 +1,4 @@
+import React from 'react';
 import {StyleSheet, TextInput, TextInputProps, Text} from 'react-native';
 
 interface CustomTextInputProps extends TextInputProps { 

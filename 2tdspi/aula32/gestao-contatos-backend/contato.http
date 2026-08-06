@@ -1,0 +1,24 @@
+POST http://localhost:3000/contato HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Antonio Neto",
+    "telefone": "(11) 1234-5678",
+    "email": "antonio@teste.com"
+}
+
+
+###
+
+GET http://localhost:3000/contato HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiam9hbyIsImlhdCI6MTc4NjAyNzkzMSwiZXhwIjoxNzg2MDMxNTMxfQ.HysBYYhA6vT5hnv_HBxzwaKk6C8OD8n_p_2enEn_2pc
+
+###
+
+POST http://localhost:3000/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario": "joao",
+    "senha": "1234"
+}

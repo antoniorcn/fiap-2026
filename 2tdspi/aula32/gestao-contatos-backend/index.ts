@@ -18,7 +18,7 @@ app.use(express.json());
 
 // const app = express();
 
-app.post("/signup", (req : Request, res : Response) => {
+app.post("/signin", (req : Request, res : Response) => {
     const {usuario, senha} = req.body;
     for (let i = 0; i < usuarios.length; i++) {
         const obj = usuarios[i];

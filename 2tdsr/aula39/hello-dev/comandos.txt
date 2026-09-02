@@ -1,0 +1,13 @@
+npm install --global eas-cli
+
+eas-cli --version
+
+eas login
+
+eas whoami
+
+eas init
+
+eas build:configure
+
+eas build --platform android --profile development

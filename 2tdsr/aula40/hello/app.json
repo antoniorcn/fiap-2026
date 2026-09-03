@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "hello",
+    "slug": "hello",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.profantonio.hello",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDLMlfF5qycsnZ_wUx4-q7guf_l2iiJYDU"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "440153f2-a4c0-44b6-8bfd-be0d7bfbae66"
+      }
+    },
+    "owner": "profantonio"
+  }
+}

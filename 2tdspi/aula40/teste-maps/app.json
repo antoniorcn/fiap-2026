@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "teste-maps",
+    "slug": "teste-maps",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package":"com.teste.googlemaps",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBoBO8wYfa4cXCCafst15vhY3D5pj6VJNM"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

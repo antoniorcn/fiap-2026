@@ -1,0 +1,41 @@
+npm install --global eas-cli
+
+eas-cli --version
+
+eas login
+
+eas whoami
+
+eas init
+
+eas build:configure
+
+eas build --platform android --profile development
+
+
+# Comandos para fazer o build localmente
+
+SET JAVA_HOME="C:\usr\jdk-17.0.15-full"
+SET PATH=%JAVA_HOME%\bin;%PATH%
+java --version
+
+SET ANDROID_HOME="C:\usr\Android\SDK"
+SET ANDROID_SDK_ROOT="C:\usr\Android\SDK"
+SET PATH=%JAVA_HOME%\bin;%ANDROID_HOME%\emulator;%ANDROID_HOME%\tools;%ANDROID_HOME%\tools\bin;%ANDROID_HOME%\platform-tools;%PATH%
+adb --version
+
+npx expo prebuild --platform android
+
+
+# Monta o APK de Desenvolvimento (Development)
+gradlew assemblyDebug
+
+# Montar e Instalar o APK de Desenvolvimento (Development)
+gradlew installDebug
+
+
+# Monta o APK de Preview (Preview)
+gradlew assemblyRelease
+
+# Montar e Instalar o APK de Preview (Preview)
+gradlew installRelease

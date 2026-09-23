@@ -1,0 +1,5 @@
+{
+    "app_name_other": "DrugStore System to {{count}} Stores",
+    "app_name_one": "DrugStore System to {{count}} Store",
+    "app_name_zero": "DrugStore System to none store",    
+    "med_form": "Drug Register Form"}

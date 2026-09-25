@@ -10,6 +10,7 @@ import { useAutenticacaoControl } from './src/control/useAutenticacaoControl';
 import { MeuContexto } from './src/context/MeuContexto';
 import * as SplashScreen from 'expo-splash-screen';
 import Splash from './assets/splash.png';
+import './src/config/localizacao';
 
 const mensagem = ( texto : string ) => { 
     ToastAndroid.show( texto, ToastAndroid.LONG );

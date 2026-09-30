@@ -1,0 +1,6 @@
+{
+    "appname_other": "Sistema de Farmácia para {{count}} lojas",
+    "appname_one": "Sistema de Farmácia para {{count}} loja",
+    "appname_zero": "Sistema de Farmácia para nenhuma loja",
+    "med_form": "Formulário de Medicamento"
+}

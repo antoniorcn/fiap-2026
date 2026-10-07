@@ -1,8 +1,8 @@
-import { Button, FlatList, Image, ListRenderItemInfo, 
-  Modal, StyleSheet, Text, TextInput, ToastAndroid, 
+import { Animated, FlatList, Image, ImageBackground, ListRenderItemInfo, 
+  Modal, StyleSheet, ToastAndroid, 
+  useAnimatedValue, 
   useWindowDimensions, View } from 'react-native';
 import { useEffect, useState } from 'react';
-import axios, { AxiosResponse } from 'axios';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from './src/screen/Home';
 import Autenticacao from './src/screen/Autenticacao';
@@ -11,7 +11,7 @@ import { MeuContexto } from './src/context/MeuContexto';
 import * as SplashScreen from 'expo-splash-screen';
 import Splash from './assets/splash.png';
 import './src/config/localizacao';
-
+import icone from './assets/icone.png';
 const mensagem = ( texto : string ) => { 
     ToastAndroid.show( texto, ToastAndroid.LONG );
 }
@@ -42,9 +42,49 @@ const Principal = () => {
 
 const SplashImage = () => {
   const {width, height} = useWindowDimensions();
+  const x = useAnimatedValue(0);
+  const y = useAnimatedValue(0);
+  useEffect(()=>{
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(x, { 
+          useNativeDriver: true,
+          toValue: 180,
+          duration: 1000,
+        }),
+        Animated.timing(y, { 
+          useNativeDriver: true,
+          toValue: 750,
+          duration: 1000,
+        })
+      ]),
+      Animated.parallel([
+        Animated.timing(y, { 
+          useNativeDriver: true,
+          toValue: 30,
+          duration: 1000,
+        }),
+        Animated.timing(x, { 
+          useNativeDriver: true,
+          toValue: 350,
+          duration: 1000,
+        })
+      ])
+    ]).start();
+  }, []);
   return (
     <View style={{flex: 1}}>
-      <Image source={Splash} style={{width, height}}/>
+      <ImageBackground source={Splash} style={{flex:1, width, height, position: 'absolute'}}>
+          <Animated.Image 
+          source={icone}
+          style={{
+            top: 30, left: 0,
+            width: 50, height: 50,
+            transform: [{translateX: x},
+              {translateY: y}
+            ],
+          }}/>
+      </ImageBackground>
     </View>
   );
 }
@@ -103,7 +143,4 @@ const styles = StyleSheet.create({
     color: "gray"
   }
 });
-function useEfect(arg0: () => void, arg1: never[]) {
-  throw new Error('Function not implemented.');
-}
 
